@@ -106,6 +106,7 @@ public class ShareEnderChest implements ModInitializer, ServerStopping, ServerSt
 				if (player.isSneaking() && !player.isSpectator()) {
 					if (world.isClient()) return ActionResult.SUCCESS;
 					openSharedEnderChest(player);
+					world.playSound(null, hitResult.getBlockPos(), SoundEvents.BLOCK_ENDER_CHEST_OPEN, SoundCategory.BLOCKS, 1f, 1f);
 					return ActionResult.SUCCESS;
 
 					//EnderChestBlockEntity blockEntity = (EnderChestBlockEntity) world.getBlockEntity(hitResult.getBlockPos());
