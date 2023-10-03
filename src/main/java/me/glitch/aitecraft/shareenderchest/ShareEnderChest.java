@@ -58,7 +58,7 @@ public class ShareEnderChest implements ModInitializer, ServerStopping, ServerSt
 				NbtCompound nbt = NbtIo.readCompressed(inventoryFileDataInput);
 				inventoryFileInputStream.close();
 				
-				DefaultedList<ItemStack> inventoryItemStacks = DefaultedList.ofSize(54, ItemStack.EMPTY);
+				DefaultedList<ItemStack> inventoryItemStacks = DefaultedList.ofSize(27, ItemStack.EMPTY);
 				Inventories.readNbt(nbt, inventoryItemStacks);
 				
 				sharedInventory = new SharedInventory(inventoryItemStacks);
@@ -73,7 +73,7 @@ public class ShareEnderChest implements ModInitializer, ServerStopping, ServerSt
 	public static void saveInventory(MinecraftServer server) {
 		File inventoryFile = getFile(server);
 		NbtCompound nbt = new NbtCompound();
-		DefaultedList<ItemStack> inventoryItemStacks = DefaultedList.ofSize(54, ItemStack.EMPTY);
+		DefaultedList<ItemStack> inventoryItemStacks = DefaultedList.ofSize(27, ItemStack.EMPTY);
 		Inventories.writeNbt(nbt, sharedInventory.getList(inventoryItemStacks));
 		try {
 			inventoryFile.createNewFile();
@@ -155,8 +155,8 @@ public class ShareEnderChest implements ModInitializer, ServerStopping, ServerSt
 
 	public static void openSharedEnderChest(PlayerEntity player) {
 		player.openHandledScreen(new SimpleNamedScreenHandlerFactory((int_1, playerInventory, playerEntity) -> {
-			return new GenericContainerScreenHandler(ScreenHandlerType.GENERIC_9X6, int_1, playerInventory, sharedInventory,
-					6);
+			return new GenericContainerScreenHandler(ScreenHandlerType.GENERIC_9X3, int_1, playerInventory, sharedInventory,
+					3);
 		}, Text.of("Shared Ender Chest")));
 	}
 
