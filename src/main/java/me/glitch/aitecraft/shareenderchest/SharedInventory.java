@@ -9,7 +9,7 @@ import net.minecraft.util.collection.DefaultedList;
 import java.util.Iterator;
 
 public class SharedInventory implements Inventory {
-    public static final int SECTION_SIZE = 54;
+    public static final int SECTION_SIZE = 27;
     private final DefaultedList<ItemStack> stacks;
     //private static final HashMap<PlayerEntity, EnderChestBlockEntity> enderChests = new HashMap<PlayerEntity, EnderChestBlockEntity>();
 
