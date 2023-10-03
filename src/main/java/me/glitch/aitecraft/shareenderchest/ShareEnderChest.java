@@ -116,19 +116,19 @@ public class ShareEnderChest implements ModInitializer, ServerStopping, ServerSt
 			return ActionResult.PASS;
 		};
 
-		UseItemCallback.EVENT.register((player, world, hand) -> {
+		/*UseItemCallback.EVENT.register((player, world, hand) -> {
 			ItemStack stack = player.getMainHandStack();
 			if (world.isClient()) return TypedActionResult.pass(stack);
 
 			if (isEnderChest(stack) && world.getServer() != null) {
-				if ( /*player.isSneaking() &&*/ !player.isSpectator()) {
+				if ( player.isSneaking() && !player.isSpectator()) {
 					openSharedEnderChest(player);
 					return TypedActionResult.success(stack);
 				}
 			}
 			
 			return TypedActionResult.pass(stack);
-		});
+		});*/
 		
 		UseBlockCallback.EVENT.register(listenerUseBlock);
 		ServerLifecycleEvents.SERVER_STARTED.register(this);
