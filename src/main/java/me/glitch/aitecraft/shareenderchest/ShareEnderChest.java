@@ -140,11 +140,10 @@ public class ShareEnderChest implements ModInitializer, ServerStopping, ServerSt
 		// Packet Receiver
 		ServerPlayNetworking.registerGlobalReceiver(
 			OPEN_SHARED_INV_PACKET,
-			(server, player, handler, buf, sender, world, hitResult) -> server.execute(() -> {
+			(server, player, handler, buf, sender) -> server.execute(() -> {
 				if (player.currentScreenHandler != player.playerScreenHandler) {
 					player.networkHandler.sendPacket(new CloseScreenS2CPacket(player.currentScreenHandler.syncId));
 					player.closeScreenHandler();
-					world.playSound(null, hitResult.getBlockPos(), SoundEvents.BLOCK_ENDER_CHEST_CLOSE, SoundCategory.BLOCKS, 1f, 1f);
 				}
 				openSharedEnderChest(player);
 			})
