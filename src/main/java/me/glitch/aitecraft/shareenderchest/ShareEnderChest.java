@@ -41,6 +41,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.WorldSavePath;
 import net.minecraft.util.collection.DefaultedList;
+import net.minecraft.block.entity.EnderChestBlockEntity;
 
 public class ShareEnderChest implements ModInitializer, ServerStopping, ServerStarted, EndTick {
 
