@@ -8,6 +8,7 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.block.entity.EnderChestBlockEntity;
 
 import java.util.Iterator;
+import java.util.HashMap;
 
 public class SharedInventory implements Inventory {
     public static final int SECTION_SIZE = 27;
