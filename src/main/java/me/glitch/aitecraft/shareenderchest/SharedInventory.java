@@ -5,7 +5,7 @@ import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.collection.DefaultedList;
-import net.minecraft.block.entity.EnderChestBlockEntity;
+//import net.minecraft.block.entity.EnderChestBlockEntity;
 
 import java.util.Iterator;
 import java.util.HashMap;
@@ -13,7 +13,7 @@ import java.util.HashMap;
 public class SharedInventory implements Inventory {
     public static final int SECTION_SIZE = 27;
     private final DefaultedList<ItemStack> stacks;
-    private static final HashMap<PlayerEntity, EnderChestBlockEntity> enderChests = new HashMap<PlayerEntity, EnderChestBlockEntity>(); // uncommented
+    //private static final HashMap<PlayerEntity, EnderChestBlockEntity> enderChests = new HashMap<PlayerEntity, EnderChestBlockEntity>();
 
     public SharedInventory() {
         this.stacks = DefaultedList.ofSize(SECTION_SIZE, ItemStack.EMPTY);
@@ -23,7 +23,7 @@ public class SharedInventory implements Inventory {
         this.stacks = dl;
     }
 
-    // uncommented
+    /*
     @Override
     public void onClose(PlayerEntity player) {
         Inventory.super.onClose(player);
@@ -43,7 +43,7 @@ public class SharedInventory implements Inventory {
     public void setBlockEntity(PlayerEntity player, EnderChestBlockEntity be) {
         enderChests.put(player, be);
     }
-    // up to here
+    */
     
     public DefaultedList<ItemStack> getList(DefaultedList<ItemStack> dl) {
         dl = stacks;
