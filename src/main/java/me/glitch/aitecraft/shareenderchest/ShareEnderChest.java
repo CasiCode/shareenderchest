@@ -109,28 +109,14 @@ public class ShareEnderChest implements ModInitializer, ServerStopping, ServerSt
 				if (player.isSneaking() && !player.isSpectator()) {
 					if (world.isClient()) return ActionResult.SUCCESS;
 					openSharedEnderChest(player);
-					//world.playSound(null, hitResult.getBlockPos(), SoundEvents.BLOCK_ENDER_CHEST_OPEN, SoundCategory.BLOCKS, 1f, 1f); // commented
-					EnderChestBlockEntity blockEntity = (EnderChestBlockEntity) world.getBlockEntity(hitResult.getBlockPos()); //uncommented
-					sharedInventory.setBlockEntity(player, blockEntity); //uncommented
+					world.playSound(null, hitResult.getBlockPos(), SoundEvents.BLOCK_ENDER_CHEST_OPEN, SoundCategory.BLOCKS, 1f, 1f);
+					//EnderChestBlockEntity blockEntity = (EnderChestBlockEntity) world.getBlockEntity(hitResult.getBlockPos());
+					//sharedInventory.setBlockEntity(player, blockEntity);
 					return ActionResult.SUCCESS;
 				}
 			}
 			return ActionResult.PASS;
 		};
-
-		/*UseItemCallback.EVENT.register((player, world, hand) -> {
-			ItemStack stack = player.getMainHandStack();
-			if (world.isClient()) return TypedActionResult.pass(stack);
-
-			if (isEnderChest(stack) && world.getServer() != null) {
-				if ( player.isSneaking() && !player.isSpectator()) {
-					openSharedEnderChest(player);
-					return TypedActionResult.success(stack);
-				}
-			}
-			
-			return TypedActionResult.pass(stack);
-		});*/
 		
 		UseBlockCallback.EVENT.register(listenerUseBlock);
 		ServerLifecycleEvents.SERVER_STARTED.register(this);
